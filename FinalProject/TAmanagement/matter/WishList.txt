@@ -1,0 +1,7 @@
+        <!-- Welcome page -->
+        <h2 class="message">
+            Welcome to TA Management space,
+            <p>Please Select the Course you'd like to work on</p>
+            
+            <img src="https://www.mcgill.ca/root/redpath_mbm_hp_win_21-22.jpg" alt="McGill image">
+        </h2>

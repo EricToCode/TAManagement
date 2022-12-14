@@ -1,0 +1,189 @@
+<form method="post">
+                    
+                    <h2 style="text-align: center;">Add Office Hours</h2>
+
+                    <div class="row">
+                        <div class="col-1 col-t-1 col-s-0"></div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="startTimeADD">Office Hour Starting Time</label>
+                            <br>
+                            <select name="startTimeADD" id="startTime" required>
+                                <option value="8:00">8:00</option>
+                                <option value="8:30">8:30</option>
+                                <option value="9:00">9:00</option>
+                                <option value="9:30">9:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        <div class="col-1 col-t-1 col-s-0">
+                            <h3 style="display: inline-block;">&nbsp; To &nbsp;</h3>
+                        </div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="endTimeADD">Office Hour End Time</label>
+                            <br>
+                            <select name="endTimeADD" id="endTime" required>
+                                <option value="8:00">8:00</option>
+                                <option value="8:30">8:30</option>
+                                <option value="9:00">9:00</option>
+                                <option value="9:30">9:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="weekDayADD">On</label>
+                            <br>
+                            <input class="radio" type="checkbox" name="weekDayADD[]" value="monday"> M
+                            <input class="radio" type="checkbox" name="weekDayADD[]" value="tuesday"> T
+                            <input class="radio" type="checkbox" name="weekDayADD[]" value="wednesday"> W
+                            <input class="radio" type="checkbox" name="weekDayADD[]" value="thursday"> TH
+                            <input class="radio" type="checkbox" name="weekDayADD[]" value="friday"> F
+
+                        </div>
+
+                        <div class="col-1 col-t-1 col-s-0"></div>
+                    </div>
+
+
+                    <h3 style="text-align: center; margin-top: 3%;">Add Office Location</h3>
+
+                    <div class="row">
+                        <div class="col-1 col-t-1 col-s-0"></div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="loc">Location</label></br>
+                            <input type="text" id="loc" name="loc"></br>
+                            </br>
+                        </div>
+                        <div class="col-1 col-t-1 col-s-0">
+                        </div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="zoom">Zoom Link (optional)</label></br>
+                            <input type="text" id="zoom" name="zoom"></br>
+                            </br>
+                        </div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <button class="importBtn" type="submit">Submit</button>
+                        </div>
+
+                        <div class="col-1 col-t-1 col-s-0"></div>
+                    </div>
+                    
+                </form>
+
+
+                <form method="post" style="margin-top: 5%;">
+
+
+                    <h2 style="text-align: center;">Remove Office Hours</h2>
+
+                    <div class="row">
+                        <div class="col-1 col-t-1 col-s-0"></div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="startTime">Office Hour Starting Time</label>
+                            <br>
+                            <select name="startTime" id="startTime" required>
+                                <option value="8:00">8:00</option>
+                                <option value="8:30">8:30</option>
+                                <option value="9:00">9:00</option>
+                                <option value="9:30">9:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        <div class="col-1 col-t-1 col-s-0">
+                            <h3 style="display: inline-block;">&nbsp; To &nbsp;</h3>
+                        </div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="endTime">Office Hour End Time</label>
+                            <br>
+                            <select name="endTime" id="endTime" required>
+                                <option value="8:00">8:00</option>
+                                <option value="8:30">8:30</option>
+                                <option value="9:00">9:00</option>
+                                <option value="9:30">9:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                            </select>
+                        </div>
+                        <div class="col-3 col-t-3 col-s-12">
+                            <label for="weekDay">On</label>
+                            <br>
+                            <input class="radio" type="checkbox" name="weekDay" value="M"> M
+                            <input class="radio" type="checkbox" name="weekDay" value="T"> T
+                            <input class="radio" type="checkbox" name="weekDay" value="W"> W
+                            <input class="radio" type="checkbox" name="weekDay" value="TH"> TH
+                            <input class="radio" type="checkbox" name="weekDay" value="F"> F
+
+                        </div>
+
+                        <div class="col-1 col-t-1 col-s-0"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 col-t-12 col-s-12" style="text-align: center;">
+                            <button class="importBtn" type="submit" name="addOH">Submit</button>
+                        </div>
+                    </div>
+                    
+                </form>

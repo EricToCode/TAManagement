@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TA Management Space</title>
+        <script type="text/javascript"></script>
+        <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar {
+            height: 80px;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .title {
+            float: left;
+            font-weight: bold;
+            font-size: 22px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: rgb(146, 101, 146);
+            padding-top: 30px;
+            height: 100%;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+       
+
+        .cslogo {
+            float: right;
+            height: 75%;
+            margin-right: 5%;
+            padding-top: 8px;
+            position: relative;
+        }
+
+
+        .message {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: brown;
+            text-align: center;
+            margin: 50px 20% 50px 20%;
+        }
+
+        .message p {
+            color: #000000;
+            font-size: medium;
+        }
+
+        .message img {
+            border-radius: 50%;
+            align-items: center;
+            width: 50%;
+            margin-top: 30px;
+        }
+
+        .footer {
+            /* position: absolute; */
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #000000;
+            color: #A0A0A0;
+            margin-left: 0%;
+        }
+
+        .logo2 {
+            float: right;
+            padding-top: 20px;
+            padding-right: 5%;
+            position: relative;
+            height: 50px;
+        }
+
+        .credit {
+            padding-top: 20px;
+            padding-left: 5%;
+        }
+
+        .creditlink {
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .main-content{
+            padding-left: 5%;
+            padding-right: 5%;
+            overflow: auto;
+            white-space: nowrap;
+        }
+
+        .importMessage {
+            color: #68C840;
+        }
+        .placeholder{
+            height: 400px;
+        }
+        .sidenav {
+  height: 50%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:rgb(188, 192, 196);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: rgb(45, 4, 228);
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <a id="title" class="title" href="https://www.cs.mcgill.ca/~cfeng11/project/TAadministration.php?Page=Welcome">
+                Profs/Ta's Channel
+            </a>
+            
+            <img class="cslogo" src="https://studyarchitecture.com/wp-content/uploads/mcgill-university-logo-png-transparent-cropped.png" alt="McGill School of CS">
+        </div>
+      
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Announce</a>
+                <a href="#">Chat</a>
+                <a href="#">ass notes</a>
+                <a href="#">Reminders</a>
+                <a href="#">Links</a>
+
+              </div>
+    
+              <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+              
+              <script>
+              function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+              }
+              
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+              }
+              </script> 
+              <div class="main-content">
+                <!-- Welcome page -->
+                <h2 class="message">
+                 Welcome to the Channel space
+                 <br>
+                    <img src="https://www.mcgill.ca/root/redpath_mbm_hp_win_21-22.jpg" alt="McGill image">
+                </h2>
+        
+        <footer>
+            <div class="footer">
+                <img class="logo2" src="img/logo2.png" alt="School of CS">
+                <p class="credit">
+                    &copy; McGill University 2022 &nbsp;
+                    <span>
+                        <a class="creditlink" href="https://www.cs.mcgill.ca/about/#credit">Credits</a>
+                    </span>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

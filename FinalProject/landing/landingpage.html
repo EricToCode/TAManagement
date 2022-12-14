@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+
+    <link rel="stylesheet" href="landingstyle.css">
+
+    <script>
+        // Open the Modal
+        function openModal() {
+        document.getElementById("myModal").style.display = "block";
+        }
+        
+        // Close the Modal
+        function closeModal() {
+        document.getElementById("myModal").style.display = "none";
+        }        
+    </script>
+</head>
+
+<body style="margin: 0px; background-color: white;">
+
+    <!-- Header -->
+    <div class="row header">
+        <div class="col-1 col-t-1 col-s-4"></div>
+        <div class="col-2 col-t-3 col-s-4" style="background-color: #DA3739; padding: 0; height: 100%;">
+            <div class="logo">
+                <img src="logo.png" style='height: 100%; width: 100%; object-fit: contain'>
+            </div>
+        </div>
+        <div class="col-9 col-t-8 col-s-4">
+        </div>
+    </div>
+
+    
+    <!-- Main Body -->
+    <div class="row">
+
+        <!-- Left Spacer -->
+        <div class="col-1 col-t-1 col-s-0"></div>
+
+        <!-- Content -->
+        <div class="col-5 col-t-7 col-s-12">
+            <div style="height: 20vh;"></div>
+            <h1>
+                TA Management
+            </h1>
+            <div style="height: 10vh;"></div>
+            <div style="padding-top: 2%;">
+                <button class="outline-button" style="margin-left:0%;" onclick="openModal()"> Log In </button>
+                <button class="outline-button" style="margin-left:10%; margin-right: 5%;"> <a id="signuplink" href="signup.php">Sign Up</a> </button>
+            </div>
+
+        </div>
+
+        <!-- Image -->
+        <div class="col-6 col-t-4 col-s-12" style="padding: 0; height:100vh">
+            <img src="mcgill_main_image.jpg" style='height: 100%; width: 100%; object-fit: cover'>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="row footer" style="margin-top: 3%;">
+        <div class="col-10"></div>
+        <div class="col-2">
+            <img src="logo-footer.png" style='height: 100%; width: 100%; object-fit: contain'>
+            <p style="color: #A0A0A0;">© McGill University 2022</p>
+        </div>
+
+    </div>    
+    
+    <!-- The Modal/Lightbox -->
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <!-- Header for modal -->
+        <div class="row header">
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-4 col-t-6 col-s-8" style="background-color: #DA3739; padding: 0; height: 100%;">
+                <div class="logo">
+                    <img src="logo.png" style='height: 100%; width: 100%; object-fit: contain'>
+                </div>
+            </div>
+            <div class="col-7 col-t-5 col-s-0">
+            </div>
+        </div>
+            <div style="padding: 5%; text-align: center;">
+                <form action = "" method="post">
+                    <label for="uname">Username</label></br>
+                    <input type="text" id="uname" name="uname"></br>
+                    </br>
+                    <label for="password">Password</label></br>
+                    <input type="text" id="password" name="password"></br>
+                    </br>
+                    <label for="as">Logging in as</label></br>
+                    <!-- <select name="loggingas"> -->
+                        <select id="selectbox" name="login-Options">
+                            <option value=""></option>
+                        <option value="prof">Professor</option>
+                        <option value="student">Student</option>                       
+                        <option value="ta">Teaching Assistant</option>
+                        <option value="management">TA Administrator</option>
+                        <option value="sysop">System Operator</option>
+                    </select>
+                </form>
+                
+                <div style="text-align: center; padding-top:5%;">
+                    <button class="outline-button" onclick="SelectRedirect()"> Log In </button>
+                </div>
+            </div>
+        </div>
+    </div>    
+    <!-- on selection of section this function will work  -->
+    <script language="javascript">
+        function SelectRedirect(){
+        switch(document.getElementById('selectbox').value)
+        {
+        case "student":
+        window.location="rateTA.php";
+        break;
+      
+        case "prof":
+        window.location="../TAmanagement/TAmanagement.php?Page";
+        break;
+      
+        case "ta":
+        window.location="../TAmanagement/TAmanagement.php?Page";
+        break;
+        case "management":
+        window.location="../TAadministration/TAadministration.php?Page";
+        break;
+        case "sysop":
+        window.location="../sysop/sysop.php?Page";
+        break;
+
+        default:
+        window.location="landingpage.html"; // if no selection matches then redirected to home page
+        break;
+        }// end of switch 
+        }
+         
+        </script>
+</body>
+</html>
