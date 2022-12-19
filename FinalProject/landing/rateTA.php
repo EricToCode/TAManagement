@@ -55,16 +55,16 @@ if (array_key_exists('submit', $_POST)) {
 <body style="margin: 0px; background-color: white;">
 
     <!-- Header -->
-    <div class="row header">
-        <div class="col-1 col-t-1 col-s-4"></div>
+    <div class="row header" style="background-color: #DA3739">
         <div class="col-2 col-t-3 col-s-4" style="background-color: #DA3739; padding: 0; height: 100%;">
             <div class="logo">
                 <img src="Logo.png" style='height: 100%; width: 100%; object-fit: contain'>
             </div>
         </div>
-        <div class="col-9 col-t-8 col-s-4">
-            <a href="#" class="nav-link" style="margin-left: 15%;">Dashboard</a>
-            <a href="landingpage.html" class="nav-link" style="margin-left: 65%;">Logout</a>
+        <div class="col-9 col-t-8 col-s-4"></div>
+        <div class="col-1 col-t-1 col-s-4">
+            <!-- <a href="#" class="nav-link" style="margin-left: 15%;">Dashboard</a> -->
+            <a href="landingpage.html" class="nav-link"><button class="logout-button">Logout</button></a>
         </div>
     </div>
 

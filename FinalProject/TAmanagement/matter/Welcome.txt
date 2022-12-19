@@ -14,7 +14,7 @@
         }
 
         .header {
-            background-color: white;
+            background-color: #DA3739;
             border-top: 4px solid;
             border-top-color: #DA3739;
             box-shadow: rgb(0 0 0 / 4%) 0 1px 0, rgb(0 0 0 / 5%) 0 2px 7px, rgb(0 0 0 / 6%) 0 12px 22px;
@@ -366,13 +366,14 @@
     </head>
     <body style="margin: 0px; background-color: white;">
 	<div class="row header">
-            <div class="col-1 col-t-1 col-s-4"></div>
             <div class="col-2 col-t-3 col-s-4" style="background-color: #DA3739; padding: 0; height: 100%;">
                 <div class="logo">
                     <img src="img/Logo.png" style="height: 100%; width: 100%; object-fit: contain">
                 </div>
             </div>
             <div class="col-9 col-t-8 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4">
+            <a href="../landing/landingpage.html" class="nav-link"><button class="logout-button">Logout</button></a></div>
         </div>
 
         <!-- Welcome page -->

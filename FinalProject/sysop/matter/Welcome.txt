@@ -1,6 +1,7 @@
         <!-- Welcome page -->
         <h2 class="message">
-            Welcome to the System Operator space,
-            <p>Please select what you want to do from the tabs above.</p>
-            <img src="https://www.mcgill.ca/root/redpath_mbm_hp_win_21-22.jpg" alt="McGill image">
+            System Operator
+            <p>Select a tab</p>
+            <!--<img src="https://www.mcgill.ca/root/redpath_mbm_hp_win_21-22.jpg" alt="McGill image">
+            -->
         </h2>
