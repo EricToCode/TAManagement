@@ -88,60 +88,19 @@
             </div>
         </div>
             <div style="padding: 5%; text-align: center;">
-                <form action = "" method="post">
+                <form action = "dashboard.php" method="POST">
                     <label for="uname">Username</label></br>
-                    <input type="text" id="uname" name="uname"></br>
+                    <input type="text" id="uname" name="uname" required=""></br>
                     </br>
                     <label for="password">Password</label></br>
-                    <input type="text" id="password" name="password"></br>
+                    <input type="password" id="password" name="password" required=""></br>
                     </br>
-                    <label for="as">Logging in as</label></br>
-                    <!-- <select name="loggingas"> -->
-                        <select id="selectbox" name="login-Options">
-                            <option value=""></option>
-                        <option value="prof">Professor</option>
-                        <option value="student">Student</option>                       
-                        <option value="ta">Teaching Assistant</option>
-                        <option value="management">TA Administrator</option>
-                        <option value="sysop">System Operator</option>
-                    </select>
+                    <div style="text-align: center; padding-top:5%;">
+                        <button class="outline-button" type="submit"> Log In </button>
+                    </div>
                 </form>
-                
-                <div style="text-align: center; padding-top:5%;">
-                    <button class="outline-button" onclick="SelectRedirect()"> Log In </button>
-                </div>
             </div>
         </div>
     </div>    
-    <!-- on selection of section this function will work  -->
-    <script language="javascript">
-        function SelectRedirect(){
-        switch(document.getElementById('selectbox').value)
-        {
-        case "student":
-        window.location="../rateTA/rateTA.php";
-        break;
-      
-        case "prof":
-        window.location="../TAmanagement/TAmanagement.php?Page";
-        break;
-      
-        case "ta":
-        window.location="../TAmanagement/TAmanagement.php?Page";
-        break;
-        case "management":
-        window.location="../TAadministration/TAadministration.php?Page";
-        break;
-        case "sysop":
-        window.location="../sysop/sysop.php?Page";
-        break;
-
-        default:
-        window.location="landingpage.html"; // if no selection matches then redirected to home page
-        break;
-        }// end of switch 
-        }
-         
-        </script>
 </body>
 </html>

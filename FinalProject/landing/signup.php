@@ -23,6 +23,7 @@ if (array_key_exists('submit', $_POST)) {
     passwd VARCHAR(30),
     studentId INTEGER,
     courses VARCHAR(50),
+    signuptype VARCHAR(100),
     PRIMARY KEY (studentId)
     );";
     $conn->exec($stmt);
@@ -35,9 +36,10 @@ if (array_key_exists('submit', $_POST)) {
     $password = $_POST["password"];
     $studentId = $_POST["stid"];
     $courses=$_POST["courses"];
+    $type = implode(', ', $_POST['type']);
 
-    $stmt = "INSERT INTO Users (firstname, lastname, email, username, passwd, studentId, courses)
-            VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$studentId', '$courses');";
+    $stmt = "INSERT INTO Users (firstname, lastname, email, username, passwd, studentId, courses, signuptype)
+            VALUES ('$firstname', '$lastname', '$email', '$username', '$password', '$studentId', '$courses', '$type');";
     $conn->exec($stmt);
     echo "entries added successfully";
     $conn = null;
@@ -71,7 +73,8 @@ if (array_key_exists('submit', $_POST)) {
         </div>
         <div class="col-9 col-t-8 col-s-4">
         </div>
-        <div class="col-1 col-t-1 col-s-4"></div>
+        <div class="col-1 col-t-1 col-s-4"><a href="../landing/landingpage.html"><button class="submitBtn">Logout</button></a>
+            </div>
     </div>
 
 
@@ -85,7 +88,7 @@ if (array_key_exists('submit', $_POST)) {
             <label for="fname"><b>First Name</b></label><br>
             <input type="text" placeholder="Enter First Name" id="fname" name="fname" required><br>
             <br>
-            <label for="lname"><b>Last Name</b></label>
+            <label for="lname"><b>Last Name</b></label><br>
             <input type="text" placeholder="Enter Last Name" id="lname" name="lname" required><br>
             <br>
             <label for="email">Email</label></br>
@@ -108,21 +111,16 @@ if (array_key_exists('submit', $_POST)) {
                 <label for="courses">Course</label></br>
                 <input type="text" placeholder="Enter course" id="courses" name="courses"></br>
                 </br>
-                <!--
-                <label for="as">Your courses (choose all that apply)</label></br>
-                <select name="courses" multiple>
-                    <?php
-                        $fileHandle = fopen("courses.csv", "r");
-                        while (($row = fgetcsv($fileHandle, 0, ",")) !== FALSE) {
-                        $courses = $row[0];
-                    ?>
-                    <option value="<?php echo $courses;?>"><?php echo $courses;?></option>
-                    <?php
-                    }
-                    ?>   
-                </select><br>
-                <br>
-                -->
+                <label for="type">Signup type</label><br>
+                <select name="type[]" id="type[]" multiple style="width:200px; height:100px;">
+                <option value="Student">Student</option>
+                <option value="Professor">Professor</option>
+                <option value="TA">TA</option>
+                <option value="Admin">TA Administrator</option>
+                <option value="Sysop">System Operator</option>
+                </select>
+                <br><br>
+                
                 <!-- sign up button  -->
                 <div class="clearfix">
                 <button name="submit" type="submit" class="outline-button"> <a>Register</a> </button>

@@ -161,21 +161,21 @@
             }
             // get the current TAs
             $currTAs = "";
-            $results = $conn->query("SELECT B.TA_name FROM TA_course_assignment A, TACohort B
+            $results = $conn->query("SELECT B.TA_name, B.student_ID FROM TA_course_assignment A, TACohort B
                     WHERE A.student_ID = B.student_ID
                     AND A.course_num='$cnum' AND A.term_month_year ='$currentTerm';");
             foreach ($results as $TA) {
-                $currTAs = $currTAs . $TA['TA_name'] . "<br>";
+                $currTAs = $currTAs . $TA['TA_name']. " ". $TA['student_ID'] . "<br>";
             }
             // get the past TAs
             $pastTAs = "";
-            $results = $conn->query("SELECT B.TA_name FROM TA_course_assignment A, TACohort B
+            $results = $conn->query("SELECT B.TA_name, B.student_ID FROM TA_course_assignment A, TACohort B
                     WHERE A.student_ID = B.student_ID
                     AND A.course_num = '$cnum' 
                     AND A.term_month_year != '$currentTerm'
                     ;"); // needs update
             foreach ($results as $TA) {
-                $pastTAs = $pastTAs . $TA['TA_name'] . "<br>";
+                $pastTAs = $pastTAs . $TA['TA_name']. " ". $TA['student_ID'] . "<br>";
             }
             // get the max number of TAs permitted for a course
             $maxnum = "";

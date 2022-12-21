@@ -144,7 +144,7 @@
         echo '<table class="infoTable" id-"infoTable">';
         echo "<tr>
             <th>Student ID</th>
-            <th>TA Cohort</th>
+            <th>TA Cohort Info</th>
             <th>Student Rating Avg.</th>
             <th>Professors' Logs</th>
             <th>Students' Comments</th>
