@@ -107,11 +107,12 @@
         </a>
     </div>
     <form method="POST" class="searchBox">
-        <input type="text" name="searchTAid" id="searchTAid" placeholder="student ID">
+        <input type="text" name="searchTAid" id="searchTAid" placeholder="TA's student ID">
         <button type="submit" value="search" onclick="hideTable()"><i class="fa fa-search"></i></button>
     </form>
     <br>
     <?php
+    
     //open database session
     $servername = "localhost"; 
     $username = "root"; 

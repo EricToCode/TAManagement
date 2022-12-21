@@ -34,7 +34,6 @@
     <form method="post">
         <label for="termyear">Term and year:</label><br>
         <select name="termyear" id="termyear" required>
-            <option value="Winter2022">Winter2022</option>
             <option value="Fall2022">Fall2022</option>
             <option value="Winter2023">Winter2023</option>
         </select>

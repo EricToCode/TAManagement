@@ -1,7 +1,7 @@
     </div>
     <footer>
         <div class="footer">
-            <img class="logo2" src="img/logo2.png" alt="School of CS">
+            <img class="logo2" src="img/logo-footer.png" alt="School of CS">
             <p class="credit">
                 &copy; McGill University 2022 &nbsp;
                 <span>

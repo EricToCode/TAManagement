@@ -16,14 +16,12 @@ if (isset($_POST["importTAcohort"])) {
 
     // drop existing tables (overwrite)
     $stmt = "DROP TABLE IF EXISTS CourseQuota;";
-    $query = $conn->prepare($stmt);
-    $query->execute();
+    $conn->exec($stmt);
     $stmt = "DROP TABLE IF EXISTS TACohort;";
-    $query = $conn->prepare($stmt);
-    $query->execute();
+    $conn->exec($stmt);
 
     // create table CourseQuota and insert data
-    $file_path = "CourseQuota.csv";
+    $file_path = "csvs/CourseQuota.csv";
     $handle = fopen($file_path, "r") or die("Unable to open file!");
     $i = 0;
     while (($cont = fgetcsv($handle, 1000, ",")) !== false) {
@@ -51,7 +49,7 @@ if (isset($_POST["importTAcohort"])) {
     }
 
     // create table TACohort and insert data
-    $file_path = "TACohort.csv";
+    $file_path = "csvs/TACohort.csv";
     $handle = fopen($file_path, "r") or die("Unable to open file!");
     $i = 0;
     while (($cont = fgetcsv($handle, 1000, ",")) !== false) {
@@ -85,6 +83,7 @@ if (isset($_POST["importTAcohort"])) {
         $i++;
     }
 
+    // create TA_course_assignment table
     $stmt = "DROP TABLE IF EXISTS TA_course_assignment;
     CREATE TABLE TA_course_assignment (
         term_month_year VARCHAR(10),
@@ -94,6 +93,7 @@ if (isset($_POST["importTAcohort"])) {
     );";
     $conn->exec($stmt);
 
+    // end connection and confirm import success
     $conn->connection = null;
     echo "<span style='color: #66AC50;'>import success!</span>";
 }
