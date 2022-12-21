@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TA Management</title>
+        <script type="text/javascript"></script>
+        <link rel="stylesheet" href="ta_management.css">
+    </head>
+    <body style="margin: 0px; background-color: white;">
+        <div class="row header" style="background-color:#322fba">
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-3 col-s-4" style="background-color: #322fba; padding: 0; height: 100%; margin-right:0">
+                <div class="logo">
+                    <img src="logo.png" style="height: 100%; width: 100%; object-fit: contain">
+                </div>
+            </div>
+            <div class="col-9 col-t-8 col-s-4"></div>
+        </div>
+
+        <div class="col-6" style="background-color: rgb(255, 255, 255)">
+            <a href="ta_management.html"><img src="mcgill-logo.png" style="display: block; width:10%; height:10%; margin-left: auto; margin-right: auto;"></a>
+        </div>
+
+        <div class="col-6">
+            <h2 class="message" style="padding:0; background-color:rgb(255, 255, 255)">
+                Viewing All Courses
+            </h2>
+        </div>
+
+        <div class="row" >
+            <div class="col-6 col-t-12 col-s-12" style="text-align:center; padding:0">
+                <div class="tab-bar" style=" background-color:rgb(255, 255, 255) ">
+		            <a href="channel.html" class="empty">
+                        <button class="tab">
+                            Channel
+                        </button>
+                    </a>
+                    <a href="select.html" class="active">
+                        <button class="tab">
+                            Select Course
+                        </button>
+                    </a>
+                    
+                    <a href="all_ta.html" class="empty">
+                        <button class="tab">
+                            All TA Reports
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content" style="text-align:center">
+            <form method="post" style="display:inline-block; text-align:center; place-items:center">
+                <br><br>
+                <label for="course" style="width:100%">Course:</label><br>
+                <select name="course" id="course" required="">
+                    <option value="Course1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Course 1</font></font></option>
+                    <option value="Course2">Course 2</option>
+                </select>
+                <br><br>
+                <label for="option" style="width:100%">Option:</label><br>
+                <select name="option" id="option" required="">
+                    <option value="OHRes">OH/Responsibility</option>
+                    <option value="Peformance">Performance</option>
+                    <option value="Wishlist">Wishlist</option>
+                </select>
+                <br><br>
+                <button class="submitBtn" type="submit" name="addProfAndCourse">View</button>
+            </form>
+        </div>
+
+        
+        
+	</div>
+    <footer>
+        <div class="footer" style="position:fixed">
+            <img class="logo2" src="logo-footer.png" alt="School of CS">
+        </div>
+    </footer>
+</body>
+
+</html>

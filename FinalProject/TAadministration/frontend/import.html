@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TA Management</title>
+        <script type="text/javascript"></script>
+        <link rel="stylesheet" href="taadmin.css">
+    </head>
+    <body style="margin: 0px; background-color: white;">
+        <div class="row header" style="background-color:#ba852f">
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-1 col-s-4"></div>
+            <div class="col-1 col-t-3 col-s-4" style="background-color: #ba852f; padding: 0; height: 100%; margin-right:0">
+                <div class="logo">
+                    <img src="logo.png" style="height: 100%; width: 100%; object-fit: contain">
+                </div>
+            </div>
+            <div class="col-9 col-t-8 col-s-4"></div>
+        </div>
+
+        <div class="col-6" style="background-color: rgb(255, 255, 255)">
+            <a href="taadmin.html"><img src="mcgill-logo.png" style="display: block; width:10%; height:10%; margin-left: auto; margin-right: auto;"></a>
+        </div>
+
+        <div class="col-6">
+            <h2 class="message" style="padding:0; background-color:rgb(255, 255, 255)">
+                Imports Page
+            </h2>
+        </div>
+
+        <div class="row" >
+            <div class="col-6 col-t-12 col-s-12" style="text-align:center; padding:0">
+                <div class="tab-bar" style=" background-color:rgb(255, 255, 255) ">
+		            <a href="import.html" class="active">
+                        <button class="tab">
+                            Import Cohort/Stats
+                        </button>
+                    </a>
+                    <a href="addremove.html" class="empty">
+                        <button class="tab">
+                            Add/Remove TA Assignments
+                        </button>
+                    </a>
+                    
+                    <a href="history.html" class="empty">
+                        <button class="tab">
+                            History
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div style=" text-align:center">    
+            <h2>Import TA Cohort:</h2>
+            <form method="post">
+                <input class="importBtn" type="submit" id="importTAcohort" name="importTAcohort" value="Import TA Cohort" style="height:auto">
+                <br>
+            </form>
+        </div>
+        <div style=" text-align:center">    
+            <h2>Import TA Statistics:</h2>
+            <form method="post">
+                <input class="importBtn" type="submit" id="importTAstat" name="importTAstat" value="Import TA Stat" style="height:auto">
+                <br>
+            </form>
+        </div>
+        
+
+        
+        
+	</div>
+    <footer>
+        <div class="footer" style="position:fixed">
+            <img class="logo2" src="logo-footer.png" alt="School of CS">
+        </div>
+    </footer>
+</body>
+
+</html>
