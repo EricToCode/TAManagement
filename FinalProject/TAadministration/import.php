@@ -19,6 +19,10 @@ if (isset($_POST["importTAcohort"])) {
     $conn->exec($stmt);
     $stmt = "DROP TABLE IF EXISTS TACohort;";
     $conn->exec($stmt);
+    $stmt = "DROP TABLE IF EXISTS ProfTAPerformanceLog;";
+    $conn->exec($stmt);
+    $stmt = "DROP TABLE IF EXISTS TAWishList;";
+    $conn->exec($stmt);
 
     // create table CourseQuota and insert data
     $file_path = "csvs/CourseQuota.csv";
@@ -84,16 +88,81 @@ if (isset($_POST["importTAcohort"])) {
     }
 
     // create TA_course_assignment table
-    $stmt = "DROP TABLE IF EXISTS TA_course_assignment;
-    CREATE TABLE TA_course_assignment (
+    $stmt = "CREATE TABLE IF NOT EXISTS TA_course_assignment(
         term_month_year VARCHAR(10),
         student_ID INTEGER,
         course_num CHAR(7),
+        TA_name VARCHAR(50),
+        assigned_hours INTEGER,
         PRIMARY KEY (term_month_year, student_ID, course_num)
     );";
     $conn->exec($stmt);
 
-    // end connection and confirm import success
+    // create table for ProfTAPerformanceLog
+    $file_path = "csvs/ProfTAPerformanceLog.csv";
+    $handle = fopen($file_path, "r") or die("Unable to open file!");
+    $i = 0;
+    while (($cont = fgetcsv($handle, 1000, ",")) !== false) {
+        if ($i == 0) {
+            $stmt = "CREATE TABLE IF NOT EXISTS ProfTAPerformanceLog(
+                term_month_year VARCHAR(10),
+                course_num CHAR(7),
+                student_ID INTEGER,
+                comment VARCHAR(200),
+                PRIMARY KEY (term_month_year, course_num, student_ID)
+            );";
+            $conn->exec($stmt);
+        } else {
+            $stmt = "INSERT INTO ProfTAPerformanceLog
+                (term_month_year, course_num, student_ID, comment)
+                VALUES ('$cont[0]', '$cont[1]', '$cont[2]', '$cont[3]');";
+            $conn->exec($stmt);
+        }
+        $i++;
+    }
+
+    // create table for TAWishList
+    $file_path = "csvs/TAWishList.csv";
+    $handle = fopen($file_path, "r") or die("Unable to open file!");
+    $i = 0;
+    while (($cont = fgetcsv($handle, 1000, ",")) !== false) {
+        if ($i == 0) {
+            $stmt = "CREATE TABLE IF NOT EXISTS TAWishList(
+                term_month_year VARCHAR(10),
+                course_num CHAR(7),
+                prof_name VARCHAR(30),
+                student_ID INTEGER,
+                PRIMARY KEY (term_month_year, course_num, prof_name, student_ID)
+            );";
+            $conn->exec($stmt);
+        } else {
+            $stmt = "INSERT INTO TAWishList
+                (term_month_year, course_num, prof_name, student_ID)
+                VALUES ('$cont[0]', '$cont[1]', '$cont[2]', '$cont[3]');";
+            $conn->exec($stmt);
+        }
+        $i++;
+    }
+
+    $flagged_courses = "";
+    $results = $conn->query("SELECT course_name,course_num, course_enrollment_num,TA_quota FROM CourseQuota;");
+    foreach ($results as $course) {
+        $enrollment = $course['course_enrollment_num'];
+        $TAquota = $course['TA_quota'];
+        if ($enrollment / $TAquota < 30 || $enrollment / $TAquota > 45) {
+            $flagged_courses = $flagged_courses . $course['course_num'] . " " . $course['course_name'] . "<br>";
+        }
+    }
+// end connection and confirm import success
     $conn->connection = null;
     echo "<span style='color: #66AC50;'>import success!</span>";
+
+    echo '<table class="flagged_classes" id="flagged_classes">';
+        echo "<tr>
+            <th>Careful! There classes have <30 or >45 students per TA</th>";
+        echo "</tr>";
+        echo "<tr>
+        <td>$flagged_courses</td>";
+        echo "</tr>";
+        echo "</table>";
 }

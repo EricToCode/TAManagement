@@ -150,6 +150,7 @@
             <th>Max number of TAs</th>
             </tr>";
 
+        try {
         foreach ($results as $eachcourse) {
             $cnum = $eachcourse['course_num'];
             // get the course name
@@ -172,9 +173,7 @@
                     WHERE A.student_ID = B.student_ID
                     AND A.course_num = '$cnum' 
                     AND A.term_month_year != '$currentTerm'
-                    AND A.term_month_year != 'Fall2022'
-                    AND NOT A.term_month_year like '%2023'
-                    AND NOT A.term_month_year like '%2024';"); // needs update
+                    ;"); // needs update
             foreach ($results as $TA) {
                 $pastTAs = $pastTAs . $TA['TA_name'] . "<br>";
             }
@@ -196,7 +195,12 @@
         }
         echo '</table>';
     }
-
+    catch(PDOException $e)
+    {
+    echo "No record, please import files first!";
+    }
+    }
+    
     $conn->connection = null;
     ?>
 </body>

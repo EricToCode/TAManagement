@@ -112,7 +112,7 @@
     </form>
     <br>
     <?php
-    
+
     //open database session
     $servername = "localhost"; 
     $username = "root"; 
@@ -152,6 +152,7 @@
             <th><div class='coursesCell'>Current Course(s)</div></th>
             <th><div class='coursesCell'>Past Course(s)</div></th>
         </tr>";
+        
         foreach ($results as $eachAssig) {
             $sid = $eachAssig['student_ID'];
             $TA_Cohort = "";
@@ -178,7 +179,7 @@
             }
 
             // $currterm = $_POST["termyear"];
-            $currentTerm = 'Winter2022'; // needs update
+            $currentTerm = 'Fall2022'; // needs update
             // get course currently assiged
             $currcourses = "";
             $results = $conn->query("SELECT course_num
@@ -194,15 +195,13 @@
             FROM TA_course_assignment
             WHERE student_ID = $sid
             AND term_month_year != '$currentTerm'
-            AND term_month_year != 'Fall2022'
-            AND NOT term_month_year like '%2023'
-            AND NOT term_month_year like '%2024';"); // needs update
+            ;"); // needs update
             foreach ($results as $course) {
                 $prevcourses = $prevcourses . $course['course_num'] . "<br>";
             }
             // get student rating avg
             $avgscore = "";
-            $results = $conn->query("SELECT AVG(score) as average FROM studentTARating WHERE student_ID=$sid;");
+            $results = $conn->query("SELECT AVG(Rating) as average FROM taratings WHERE student_ID=$sid;");
             foreach ($results as $avg) {
                 $avgscore = strval($avg['average']);
             }
@@ -214,7 +213,7 @@
             }
             // get student rating comments
             $studentcomments = "";
-            $results = $conn->query("SELECT comment FROM studentTARating WHERE student_ID=$sid;");
+            $results = $conn->query("SELECT comment FROM taratings WHERE student_ID=$sid;");
             foreach ($results as $comment) {
                 $studentcomments = $studentcomments . $comment['comment'] . "<br>";
             }
@@ -238,8 +237,11 @@
             </tr>";
         }
         echo '</table>';
+
     }
+    
     $conn->connection = null;
+    
     ?>
 </body>
 

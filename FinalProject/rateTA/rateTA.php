@@ -1,7 +1,4 @@
 <?php
-// readfile("rate.html");
-
-
 if (array_key_exists('submit', $_POST)) {
     //open database session
     $servername = "localhost"; 
@@ -19,27 +16,35 @@ if (array_key_exists('submit', $_POST)) {
         }
 
     $stmt = "CREATE TABLE IF NOT EXISTS TaRatings(
+    userID INTEGER,
     CourseName VARCHAR(30),
     TaName VARCHAR(30),
     Rating VARCHAR(50),
-    Comment VARCHAR(30),
-    PRIMARY KEY (CourseName)
+    Comment VARCHAR(200),
+    student_ID VARCHAR(200),
+    PRIMARY KEY (userID, CourseName, TaName)
     );";
     $conn->exec($stmt);
   
+    $ID = $_POST["user_ID"];
     $courses = $_POST["courses"];
     $ta = $_POST["ta"];
     $stars = $_POST["stars"];
     $comment = $_POST["comment"];
 
-    $stmt = "INSERT INTO TaRatings(CourseName, TaName, Rating, Comment)
-        VALUES ('$courses', '$ta', '$stars', '$comment');";
+    $results = $conn->query("SELECT student_ID FROM ta_course_assignment WHERE TA_name='$ta' LIMIT 1;");
+    foreach ($results as $r) {
+        $sid = $r['student_ID'];
+    }
+    $stmt = "INSERT INTO TaRatings(userID, CourseName, TaName, Rating, Comment, student_ID)
+        VALUES ('$ID', '$courses', '$ta', '$stars', '$comment', '$sid');";
+
     $conn->exec($stmt);
     //close database session
     $conn = null;
 
-    // Redirection upon submission
-    header("Location: http://localhost/projects/TAmanagement/FinalProject/landing/landingpage.html");
+    // Redirection upon sign up
+    header("Location: http://localhost/projects/TAmanagement/FinalProject/rateTA/rateTA.php");
     exit();
  }
             
@@ -83,30 +88,35 @@ if (array_key_exists('submit', $_POST)) {
 
         <div class="main-content" style="text-align:center">
             <form method="post" style="display:inline-block; text-align:center; place-items:center">
-                <label for="TA" style="width:100%">Teaching Assistant:</label><br>
-                <select name="TA" id="TA" required="">
-                    <option value="Fall2022"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dummy 1</font></font></option>
-                    <option value="Winter2023">Dummy 2</option>
+                <label for="user_ID" style="width:100%">Enter your student ID:</label><br>
+                <input type="text" name="user_ID" id="user_ID" required="">
+                <br><br>
+                <label for="courses" style="width:100%">Course:</label><br>
+                <input list="courses" name="courses" id="courses" required="">
+                <datalist id="courses">
+                    <option name="courses" value="COMP307">
+                    <option name="courses" value="COMP551">
+                </datalist>
+                <br><br>
+                <label for="ta" style="width:100%">Teaching Assistant:</label><br>
+                <input list="ta" name="ta" id="ta" required="">
+                <datalist id="ta">
+                    <option name="ta"  value="dummy 1">
+                    <option name="ta" value="dummy 2">
+                </datalist>
+                <br><br>
+                <label for="stars" style="width:100%">Rating:</label><br>
+                <select name="stars" id="stars" required="">
+                    <option name="stars" value="1">1</option>
+                    <option name="stars" value="2">2</option>
+                    <option name="stars" value="3">3</option>
+                    <option name="stars" value="4">4</option>
+                    <option name="stars" value="5">5</option>
                 </select>
                 <br><br>
-                <label for="course" style="width:100%">Course:</label><br>
-                <select name="course" id="course" required="">
-                    <option value="Fall2022"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Course 1</font></font></option>
-                    <option value="Winter2023">Course 2</option>
-                </select>
+                <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
                 <br><br>
-                <label for="rate" style="width:100%">Rating:</label><br>
-                <select name="rate" id="rate" required="">
-                    <option value="Winter2023">1</option>
-                    <option value="Winter2023">2</option>
-                    <option value="Winter2023">3</option>
-                    <option value="Winter2023">4</option>
-                    <option value="Winter2023">5</option>
-                </select>
-                <br><br>
-                <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
-                <br><br>
-                <button class="submitBtn" type="submit" name="addProfAndCourse">Submit</button>
+                <button class="submitBtn" type="submit" name="submit">Submit</button>
             </form>
         </div>
         

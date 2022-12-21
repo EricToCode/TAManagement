@@ -33,17 +33,24 @@
         Page.
     </p>
     <form method="post">
-        <label for="termyear">Term and year:</label><br>
-        <select name="termyear" id="termyear" required>
-            <option value="Fall2022">Fall2022</option>
-            <option value="Winter2023">Winter2023</option>
-        </select>
+        <label for="browser">Term and year:</label><br>
+        <input list="termyears" for="termyear" name="termyear" id="termyear" required>
+        <datalist id="termyears">
+            <option value="Fall2022">
+            <option value="Winter2023">
+        </datalist>
         <br><br>
         <label for="studentID">Student ID of the TA:</label><br>
         <input type="text" name="studentID" id="studentID" required>
         <br><br>
         <label for="coursenum">Course number (e.g. COMP307):</label><br>
         <input type="text" name="coursenum" id="coursenum" required>
+        <br><br>
+        <label for="taname">TA name:</label><br>
+        <input type="text" name="taname" id="taname" required>
+        <br><br>
+        <label for="hours">Assigned hours:</label><br>
+        <input type="number" name="hours" id="hours" required>
         <br><br>
         <button class="submitBtn" type="submit" name="addTA">Submit</button>
     </form>
@@ -66,15 +73,21 @@
         $termyear = $_POST["termyear"];
         $studentID = $_POST["studentID"];
         $coursenum = $_POST["coursenum"];
+        $taname = $_POST["taname"];
+        $hours = $_POST["hours"];
 
+        try {
         // add the assignment records to database
-        $stmt = "INSERT INTO TA_course_assignment(term_month_year, student_ID, course_num)
-            VALUES ('$termyear', '$studentID', '$coursenum');";
-        $query = $conn->prepare($stmt);
-        // echo $stmt, "<br>";
-        $query->execute();
+        $stmt = "INSERT INTO TA_course_assignment(term_month_year, student_ID, course_num, TA_name, assigned_hours)
+            VALUES ('$termyear', '$studentID', '$coursenum', '$taname', '$hours');";
+        $conn->exec($stmt);
         echo "<span style='color: #66AC50;'>ADDED</span>";
 
+        }
+        catch(PDOException $e)
+        {
+        echo "No record, please import files first!";
+        }
         $conn->connection = null;
     }
     ?>

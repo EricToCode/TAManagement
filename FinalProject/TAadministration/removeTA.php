@@ -66,13 +66,17 @@
         $studentID = $_POST["studentID"];
         $coursenum = $_POST["coursenum"];
 
+        try {
         // add the assignment records to database
         $stmt = "DELETE FROM TA_course_assignment WHERE student_ID='$studentID' AND course_num='$coursenum' AND term_month_year='$termyear';";
-        $query = $conn->prepare($stmt);
-        // echo $stmt, "<br>";
-        $query->execute();
+        $conn->exec($stmt);
         echo "<span style='color: #66AC50;'>REMOVED</span>";
 
+        }
+        catch(PDOException $e)
+        {
+        echo "No record, please import files first!";
+        }
         $conn->connection = null;
     }
     ?>
