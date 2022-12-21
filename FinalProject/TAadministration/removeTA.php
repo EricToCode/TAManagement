@@ -32,24 +32,36 @@
         <b>Course TA History</b> Page.
     </p>
     <form method="post">
-        <label for="termyear">Term and year:</label>
+        <label for="termyear">Term and year:</label><br>
         <select name="termyear" id="termyear" required>
             <option value="Winter2022">Winter2022</option>
             <option value="Fall2022">Fall2022</option>
             <option value="Winter2023">Winter2023</option>
         </select>
         <br><br>
-        <label for="studentID">Student ID of the TA:</label>
+        <label for="studentID">Student ID of the TA:</label><br>
         <input type="text" name="studentID" id="studentID" required>
         <br><br>
-        <label for="coursenum">Course number (e.g. COMP307):</label>
+        <label for="coursenum">Course number (e.g. COMP307):</label><br>
         <input type="text" name="coursenum" id="coursenum" required>
         <br><br>
         <button class="submitBtn" type="submit" name="removeTA">Submit</button>
     </form>
     <?php
     if (isset($_POST["removeTA"])) {
-        $conn = new PDO('sqlite:../307.db');
+        //open database session
+        $servername = "localhost"; 
+        $username = "root"; 
+        $password = ""; 
+        try {
+            $conn = new PDO("mysql:host=$servername;dbname=comp307", $username, $password);
+            // set the PDO error mode to exception
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+        catch(PDOException $e)
+            {
+            echo "Connection failed: " . $e->getMessage();
+            }
 
         $termyear = $_POST["termyear"];
         $studentID = $_POST["studentID"];

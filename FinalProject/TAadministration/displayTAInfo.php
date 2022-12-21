@@ -112,8 +112,20 @@
     </form>
     <br>
     <?php
-    $conn = new PDO('sqlite:../307.db');
-    $currentTerm = 'Winter2022'; // needs update
+    //open database session
+    $servername = "localhost"; 
+    $username = "root"; 
+    $password = ""; 
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=comp307", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+    catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        }
+    $currentTerm = 'Fall2022'; // needs update
 
     // display search results
     if (isset($_POST["searchTAid"])) {

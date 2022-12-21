@@ -36,7 +36,7 @@ if (array_key_exists('submit', $_POST)) {
     $conn = null;
 
     // Redirection upon sign up
-    header("Location: http://localhost/projects/FinalProject/landing/landingpage.html");
+    header("Location: http://localhost/projects/TAmanagement/FinalProject/landing/rateTA.php");
     exit();
  }
             

@@ -1,6 +1,18 @@
 <?php
 if (isset($_POST["importTAcohort"])) {
-    $conn = new PDO('sqlite:../307.db');
+    //open database session
+    $servername = "localhost"; 
+    $username = "root"; 
+    $password = ""; 
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=comp307", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+    catch(PDOException $e)
+        {
+        echo "Connection failed: " . $e->getMessage();
+        }
 
     // drop existing tables (overwrite)
     $stmt = "DROP TABLE IF EXISTS CourseQuota;";
@@ -27,17 +39,13 @@ if (isset($_POST["importTAcohort"])) {
                 TA_number INTEGER,
                 PRIMARY KEY (course_name)
             );";
-            $query = $conn->prepare($stmt);
-            // echo $stmt, "<br>";
-            $query->execute();
+            $conn->exec($stmt);
         } else {
             $TAnum = (string)(floor($cont[5] / $cont[6]) + 1);
             $stmt = "INSERT INTO CourseQuota
                 (term_month_year, course_num, course_type, course_name, instructor_name, course_enrollment_num, TA_quota, TA_number)
                 VALUES ('$cont[0]', '$cont[1]', '$cont[2]', '$cont[3]', '$cont[4]', '$cont[5]', '$cont[6]', '$TAnum');";
-            $query = $conn->prepare($stmt);
-            // echo $stmt, "<br>";
-            $query->execute();
+            $conn->exec($stmt);
         }
         $i++;
     }
@@ -67,19 +75,25 @@ if (isset($_POST["importTAcohort"])) {
                 notes VARCHAR(100),
                 PRIMARY KEY (student_ID)
             );";
-            $query = $conn->prepare($stmt);
-            // echo $stmt, "<br>";
-            $query->execute();
+            $conn->exec($stmt);
         } else {
             $stmt = "INSERT INTO TACohort
                 (term_month_year, TA_name, student_ID, legal_name, email, grad_ugrad, supervisor_name, priority_, hours_, date_applied, location_, phone, degree, courses_applied_for, open_to_other_courses, notes)
                 VALUES ('$cont[0]', '$cont[1]', '$cont[2]', '$cont[3]', '$cont[4]', '$cont[5]', '$cont[6]', '$cont[7]', '$cont[8]', '$cont[9]', '$cont[10]', '$cont[11]', '$cont[12]', '$cont[13]', '$cont[14]', '$cont[15]');";
-            $query = $conn->prepare($stmt);
-            // echo $stmt, "<br>";
-            $query->execute();
+            $conn->exec($stmt);
         }
         $i++;
     }
+
+    $stmt = "DROP TABLE IF EXISTS TA_course_assignment;
+    CREATE TABLE TA_course_assignment (
+        term_month_year VARCHAR(10),
+        student_ID INTEGER,
+        course_num CHAR(7),
+        PRIMARY KEY (term_month_year, student_ID, course_num)
+    );";
+    $conn->exec($stmt);
+
     $conn->connection = null;
     echo "<span style='color: #66AC50;'>import success!</span>";
 }
