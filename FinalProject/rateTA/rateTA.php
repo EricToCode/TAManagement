@@ -1,19 +1,8 @@
 <?php
 if (array_key_exists('submit', $_POST)) {
     //open database session
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=comp307", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully"; 
-        }
-    catch(PDOException $e)
-        {
-        echo "Connection failed: " . $e->getMessage();
-        }
+    $dir = 'sqlite:/home/2021/hchen172/public_html/TAManagement/FinalProject/307.sqlite'; // with you path to db
+    $conn  = new PDO($dir) or die("cannot open the database");
 
     $stmt = "CREATE TABLE IF NOT EXISTS TaRatings(
     userID INTEGER,
@@ -44,7 +33,7 @@ if (array_key_exists('submit', $_POST)) {
     $conn = null;
 
     // Redirection upon sign up
-    header("Location: http://localhost/projects/TAmanagement/FinalProject/rateTA/rateTA.php");
+    header("Location: https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/rateTA/rateTA.php");
     exit();
  }
             
@@ -61,20 +50,20 @@ if (array_key_exists('submit', $_POST)) {
         <link rel="stylesheet" href="rate.css">
     </head>
     <body style="margin: 0px; background-color: white;">
-        <div class="row header" style="background-color:#cfcfcf">
+    <div class="row header" style="background-color:#CFCFCF">
             <div class="col-1 col-t-1 col-s-4"></div>
             <div class="col-1 col-t-1 col-s-4"></div>
             <div class="col-1 col-t-1 col-s-4"></div>
-            <div class="col-1 col-t-1 col-s-4">
-            <a href="../landing/landingpage.html" class="nav-link"><button class="submitBtn">Logout</button></a>
-            </div>
+            <div class="col-1 col-t-1 col-s-4"></div>
             <div class="col-1 col-t-3 col-s-4" style="background-color: #DA3739; padding: 0; height: 100%; margin-right:0">
                 <div class="logo">
                     <img src="logo.png" style="height: 100%; width: 100%; object-fit: contain">
                 </div>
             </div>
-            <div class="col-9 col-t-8 col-s-4"></div>
-        </div>
+            <div class="col-9 col-t-8 col-s-4">
+                <a href="../landing/landingpage.html"><button class="submitBtn">Logout</button></a>
+            </div>
+    </div>
 
         <div class="col-6" style="background-color: rgb(255, 255, 255)">
             <a href="sysop.html"><img src="mcgill-logo.png" style="display: block; width:10%; height:10%; margin-left: auto; margin-right: auto;"></a>

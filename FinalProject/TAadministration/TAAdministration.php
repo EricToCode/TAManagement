@@ -8,8 +8,6 @@
     <title>TA Administration</title>
 </head>
 
-<!-- For Testing: https://www.cs.mcgill.ca/~cfeng11/project/TAadministration.php -->
-
 <body>
     <?php
 

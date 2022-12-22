@@ -114,27 +114,17 @@
     <?php
 
     //open database session
-    $servername = "localhost"; 
-    $username = "root"; 
-    $password = ""; 
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=comp307", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-    catch(PDOException $e)
-        {
-        echo "Connection failed: " . $e->getMessage();
-        }
+    $dir = 'sqlite:/home/2021/hchen172/public_html/TAManagement/FinalProject/307.sqlite'; // with you path to db
+    $conn  = new PDO($dir) or die("cannot open the database");
     $currentTerm = 'Fall2022'; // needs update
 
     // display search results
     if (isset($_POST["searchTAid"])) {
         $sid = $_POST["searchTAid"];
-        $results = $conn->query("SELECT * FROM TA_course_assignment WHERE student_ID = '$sid';");
+        $results = $conn->query("SELECT * FROM TAcohort WHERE student_ID = '$sid';");
         displayTAs($results);
     } else {
-        $results = $conn->query("SELECT * FROM TA_course_assignment;");
+        $results = $conn->query("SELECT * FROM TAcohort;");
         displayTAs($results);
     }
 
