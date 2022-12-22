@@ -77,10 +77,7 @@
             }
         }
         else {
-            echo "<script>alert('Wrong Credentials');
-            window.location.href='landingpage.html';
-            </script>";
-            echo '<meta http-equiv="refresh" content="0; url=https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/landing/landingpage.html" />';
+            echo "<h2>Sorry, wrong credentials. Please go back to menu by clicking logout.</h2>";
         }
         
         }
