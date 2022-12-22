@@ -6,7 +6,9 @@
             <div style="border-color: #AAAAAA; border-radius: 8px; border: 1px solid; width: 80%;"> 
             <?php
 
-            $conn = new PDO('sqlite:../307.db');
+            //open database session
+            $dir = 'sqlite:/home/2021/hchen172/public_html/TAManagement/FinalProject/307.sqlite'; // with you path to db
+            $conn  = new PDO($dir) or die("cannot open the database");
 
             if(isset($_POST["TA"])){
                 $name = $_POST['TA'];

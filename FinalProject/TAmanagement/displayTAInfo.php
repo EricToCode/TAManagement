@@ -112,8 +112,10 @@
     </form>
     <br>
     <?php
-    $conn = new PDO('sqlite:../307.db');
-    $currentTerm = 'Winter2022'; // needs update
+    //open database session
+    $dir = 'sqlite:/home/2021/hchen172/public_html/TAManagement/FinalProject/307.sqlite'; // with you path to db
+    $conn  = new PDO($dir) or die("cannot open the database");
+    $currentTerm = 'Fall2022'; // needs update
 
     // display search results
     if (isset($_POST["searchTAid"])) {

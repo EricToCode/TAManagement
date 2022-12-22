@@ -32,7 +32,9 @@
 
             if(isset($_POST["addWishList"])){
 
-                $conn = new PDO('sqlite:../307.db');
+                //open database session
+                $dir = 'sqlite:/home/2021/hchen172/public_html/TAManagement/FinalProject/307.sqlite'; // with you path to db
+                $conn  = new PDO($dir) or die("cannot open the database");
 
                 $termyear = $_POST["termyear"];
                 $coursenum = $_POST["coursenum"];

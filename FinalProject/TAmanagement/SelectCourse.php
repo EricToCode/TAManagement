@@ -8,19 +8,8 @@
         $currentTerm = 'Fall2022';
 
         //open database session
-        $servername = "localhost"; 
-        $username = "root"; 
-        $password = ""; 
-        try {
-            $conn = new PDO("mysql:host=$servername;dbname=comp307", $username, $password);
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully"; 
-            }
-        catch(PDOException $e)
-            {
-            echo "Connection failed: " . $e->getMessage();
-            }
+        $dir = 'sqlite:/home/2021/hchen172/public_html/TAManagement/FinalProject/307.sqlite'; // with you path to db
+        $conn  = new PDO($dir) or die("cannot open the database");
         $stmt = "CREATE TABLE IF NOT EXISTS Courses(
             course_num VARCHAR(10)
             );";

@@ -14,6 +14,8 @@ Link to website:
 
 https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/landing/landingpage.html
 
+*Note: We originally wanted to use MERN, but notified professor Vybihal that we'd use XAMPP instead. Our website is on the mimi server.
+
 
 Explanation for TA administration section:
 
