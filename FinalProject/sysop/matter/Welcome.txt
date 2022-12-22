@@ -1,7 +1,0 @@
-        <!-- Welcome page -->
-        <h2 class="message">
-            System Operator
-            <p>Select a tab</p>
-            <!--<img src="https://www.mcgill.ca/root/redpath_mbm_hp_win_21-22.jpg" alt="McGill image">
-            -->
-        </h2>

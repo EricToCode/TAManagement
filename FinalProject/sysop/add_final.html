@@ -19,7 +19,8 @@
                     <img src="logo.png" style="height: 100%; width: 100%; object-fit: contain">
                 </div>
             </div>
-            <div class="col-9 col-t-8 col-s-4"></div>
+            <div class="col-9 col-t-8 col-s-4"><a href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/landing/landingpage.html"><button class="submitBtn">Logout</button></a>
+            </div>
         </div>
 
         <div class="col-6" style="background-color: rgb(255, 255, 255)">
@@ -35,7 +36,7 @@
         <div class="row" >
             <div class="col-6 col-t-12 col-s-12" style="text-align:center; padding:0">
                 <div class="tab-bar" style=" background-color:rgb(255, 255, 255) ">
-		            <a href="manage_final.html" class="active">
+		            <a href="manage_final.html" class="empty">
                         <button class="tab">
                             Manage Users
                         </button>
@@ -46,7 +47,7 @@
                         </button>
                     </a>
                     
-                    <a href="add_final.html" class="empty">
+                    <a href="add_final.html" class="active">
                         <button class="tab">
                             Manually add Courses and Professors
                         </button>
@@ -54,29 +55,30 @@
                 </div>
             </div>
         </div>
+        <div class="main-content" style="text-align:center">
+            <h2>Add a Professor and Course</h2>
+            <form method="post" style="display:inline-block; text-align:center; place-items:center">
+                <label for="termyear" style="width:100%">Term and year:</label><br>
+                <select name="termyear" id="termyear" required="">
+                    <option value="Fall2022">Fall2022</option>
+                    <option value="Winter2023">Winter2023</option>
+                </select>
+                <br><br>
+                <label for="coursenum" style="width:100%">Course number (e.g. COMP307):</label><br>
+                <input type="text" name="coursenum" id="coursenum" required="">
+                <br><br>
+                <label for="coursename" style="width:100%">Course name:</label><br>
+                <input type="text" name="coursename" id="coursename" required="">
+                <br><br>
+                <label for="instructor" style="width:100%">Instructor name:</label><br>
+                <input type="text" name="instructor" id="instructor" required="">
+                <br><br>
+                <button class="submitBtn" type="submit" name="addProfAndCourse">Submit</button>
+            </form>
+        </div>
 	</div>
-    <div class="main-content" style="height: 75vh; text-align:center">
-        <h2>Add a User</h2>
-        <form method="post" style="display:inline-block; text-align:center; place-items:center">
-            <label for="fname" style="width:100%">First Name</label><br>
-            <input type="text" id="fname" name="fname"><br><br>
-            <label for="lname" style="width:100%">Last Name</label><br>
-            <input type="text" id="lname" name="lname"><br><br>
-            <label for="email" style="width:100%">Email</label><br>
-            <input type="text" id="email" name="email"><br><br>
-            <label for="uname" style="width:100%">Username</label><br>
-            <input type="text" id="uname" name="uname"><br><br>
-            <button class="importBtn" type="submit" name="addUser">Submit</button>
-        </form>
-        <h2 style="text-align: center;">Select a user to edit or delete</h2>
-        <form method="post" style="display:inline-block; text-align:center; place-items:center">
-            <label for="user" style="width:100%">User</label><br><select name="user" id="user" required=""><option value="">-- Select a User --</option><option value="Dummy User">Dummy User</option><option value=""></option></select><br><br>
-            <button class="importBtn" type="submit" name="edit">Edit</button>
-            <button class="importBtn" type="submit" name="delete">Delete</button>  <br>
-        </form>
-    </div>
     <footer>
-        <div class="footer">
+        <div class="footer" style="position:fixed">
             <img class="logo2" src="logo-footer.png" alt="School of CS">
         </div>
     </footer>

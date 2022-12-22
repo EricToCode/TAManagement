@@ -43,7 +43,7 @@
                 if (strpos($r['signuptype'], 'Sysop') !== false) {
                     echo "<h2 style='text-align:center'>Welcome System Operator</h2>";
                     echo '<div style="text-align: center; padding-top:5%;">
-                        <a href="../sysop/sysop.php?Page"><button class="outline-button">Sysop Tasks</button></a>
+                        <a href="../sysop/sysop.html"><button class="outline-button">Sysop Tasks</button></a>
                         </div>';
                     echo '<div style="text-align: center; padding-top:5%;">
                         <a href="../TAmanagement/TAManagement.php?Page"><button class="outline-button">TA Management</button></a>
