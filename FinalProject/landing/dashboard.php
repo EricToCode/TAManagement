@@ -46,7 +46,7 @@
                         <a href="../sysop/sysop.php?Page"><button class="outline-button">Sysop Tasks</button></a>
                         </div>';
                     echo '<div style="text-align: center; padding-top:5%;">
-                        <a href="../TAmanagement/TAmanagement.php?Page"><button class="outline-button">TA Management</button></a>
+                        <a href="../TAmanagement/TAManagement.php?Page"><button class="outline-button">TA Management</button></a>
                         </div>';
                     echo '<div style="text-align: center; padding-top:5%;">
                         <a href="../TAadministration/TAAdministration.php?Page"><button class="outline-button">TA Administration</button></a>
@@ -59,7 +59,7 @@
                 if (strpos($r['signuptype'], 'Professor') !== false || strpos($r['signuptype'], 'TA')) {
                     echo "<h2 style='text-align:center'>Welcome TA Manager</h2>";
                     echo '<div style="text-align: center; padding-top:5%;">
-                        <a href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/TAmanagement.php?Page"><button class="outline-button">TA Management</button></a>
+                        <a href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/TAManagement.php?Page"><button class="outline-button">TA Management</button></a>
                         </div>';
                 }
                 if (strpos($r['signuptype'], 'Admin') !== false) {

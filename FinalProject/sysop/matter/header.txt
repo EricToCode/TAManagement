@@ -415,23 +415,23 @@
         <div class="row" style="margin-top: 5%;">
             <div class="col-12 col-t-12 col-s-12">
                 <div class="tab-bar">
-                    <a style="margin-left: 5%;" href="https://www.cs.mcgill.ca/~apopia/FinalProject/Sysop/Sysop.php?Page=Welcome" class="empty">
+                    <a style="margin-left: 5%;" href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/sysop/sysop.php?Page=Welcome" class="empty">
                         <button class="tab">
                             Welcome
                         </button>
                     </a>
-		    <a href="https://www.cs.mcgill.ca/~apopia/FinalProject/Sysop/Sysop.php?Page=UserManagement" class="empty">
+		    <a href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/sysop/sysop.php?Page=UserManagement" class="empty">
                         <button class="tab">
                             Manage Users
                         </button>
                     </a>
-                    <a href="https://www.cs.mcgill.ca/~apopia/FinalProject/Sysop/Sysop.php?Page=Import" class="empty">
+                    <a href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/sysop/sysop.php?Page=Import" class="empty">
                         <button class="tab">
                             Import Courses and Professors
                         </button>
                     </a>
                     
-                    <a href="https://www.cs.mcgill.ca/~apopia/FinalProject/Sysop/Sysop.php?Page=ManualAddition" class="empty">
+                    <a href="https://www.cs.mcgill.ca/~hchen172/TAManagement/FinalProject/sysop/sysop.php?Page=ManualAddition" class="empty">
                         <button class="tab">
                             Manually add Courses and Professors
                         </button>
